@@ -22,7 +22,8 @@ void Copytxt::callurl(QString str)
     QVector<char> text;
     this->takeurl(s);
     this->readtxt(text,s);
-    qDebug() << text;
+    this->Text_(text);
+    qDebug() << this->Text_();
 }
 
 void Copytxt::takeurl(std::string& str)
@@ -47,4 +48,13 @@ void Copytxt::readtxt(QVector<char> &text, string url)
     }
 
     fclose(f);
+}
+
+void Copytxt::Text_(QVector<char> qv)
+{
+    text_ = qv;
+}
+const QVector<char> Copytxt::Text_() const
+{
+    return text_;
 }

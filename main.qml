@@ -17,12 +17,13 @@ ApplicationWindow
         nameFilters: ["All files (*.txt)"]
         onAccepted:
         {
+            text.text = fileUrl;
             var path = fileDialog.fileUrl.toString();
             ClassA.callurl(path);
         }
         onRejected:
         {
-            text.text = "Cancelado"
+            text.text = "Canceled"
         }
     }
 
@@ -49,7 +50,7 @@ ApplicationWindow
         {
             id: download
             text: 'Download'
-            onClicked: ClassA.callme()
+            onClicked: ClassA.download()
         }
 
         TextField

@@ -54,7 +54,32 @@ void Copytxt::Text_(QVector<char> qv)
 {
     text_ = qv;
 }
+
 const QVector<char> Copytxt::Text_() const
 {
     return text_;
+}
+
+void Copytxt::download()
+{
+    FILE *f;
+
+    f = fopen("./default.txt", "w+");
+
+    if( f == NULL)
+        qDebug() << "Something went wrong";
+    else
+    {
+        auto it = this->Text_().begin();
+        while(it != this->Text_().end())
+        {
+            fprintf(f,"%c",*it);
+            ++it;
+        }
+    }
+
+    fclose(f);
+
+    qDebug() << "Finished :D";
+
 }

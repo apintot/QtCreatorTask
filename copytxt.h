@@ -14,7 +14,6 @@ public:
     void Text_(QVector<char> qv);
     const QVector<char> Text_() const;
 
-
 private:
     void takeurl(std::string& str);
     void readtxt(QVector<char>& text, std::string url);
@@ -26,6 +25,7 @@ signals:
 public slots:
     void callme();
     void callurl(QString str);
+    void download();
 
 private slots:
 

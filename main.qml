@@ -8,7 +8,7 @@ ApplicationWindow
     width: 640
     height: 480
     visible: true
-    title: qsTr("Hello World")
+    title: qsTr("Task")
 
     FileDialog
     {
@@ -17,11 +17,12 @@ ApplicationWindow
         nameFilters: ["All files (*.txt)"]
         onAccepted:
         {
-            Qt.quit()
+            var path = fileDialog.fileUrl.toString();
+            ClassA.callurl(path);
         }
         onRejected:
         {
-            Qt.quit()
+            text.text = "Cancelado"
         }
     }
 
@@ -48,6 +49,12 @@ ApplicationWindow
         {
             id: download
             text: 'Download'
+            onClicked: ClassA.callme()
+        }
+
+        TextField
+        {
+            id: text
         }
 
     }
